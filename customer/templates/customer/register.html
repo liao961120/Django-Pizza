@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block static %}
+    <script src="{% static 'register.js' %}"></script>
+{% endblock %}
+
+{% block title %}
+    Customer Register
+{% endblock %}
+
+{% block body %}
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+    <form action="{% url 'customer:register' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" id='username' placeholder="Username" required pattern='[a-zA-Z0-9_-]+'>
+        <input type="password" name="password" id='pssd' placeholder="Password" required pattern='[a-zA-Z0-9_-]+'>
+        <input type="password" id="pssd_confirm" placeholder="Confirm Password" required>
+        <input type="email" name="email" placeholder='Email' required>
+
+        <input type="text" name="first_name" placeholder="First name">
+        <input type="text" name="last_name" placeholder="Last name">
+        <input type="submit" value="Register">
+    </form>
+{% endblock %}

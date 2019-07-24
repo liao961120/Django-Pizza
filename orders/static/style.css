@@ -1,0 +1,20 @@
+select {
+    margin: 2px;
+    margin-left: 4px;
+    padding: 4px;
+}
+
+
+div.menu-item {
+    margin: 8px;
+    font-size: 21px;
+}
+
+.selected {
+    background-color: aquamarine;
+}
+
+button.add-to-cart {
+    /* top right down left*/
+    margin: 8px 5px 5px 5px;
+}

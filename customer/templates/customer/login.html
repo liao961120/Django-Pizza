@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block body %}
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+    <form action="{% url 'customer:login' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="username" required pattern='[a-zA-Z0-9_-]+'>
+        <input type="password" name="password" placeholder="password" required pattern='[a-zA-Z0-9_-]+'>
+        <input type="submit" value="Login">
+    </form>
+{% endblock %}

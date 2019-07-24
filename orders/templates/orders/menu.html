@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script type="text/javascript">
+        const showMenu_url = "{% url 'orders:showMenu' %}";
+        const add2chart_url = "{% url 'orders:add2chart' %}";
+    </script> 
+    <script src="{% static 'menu.js' %}"></script>
+{% endblock %}
+
+{% block title %}
+    Menu
+{% endblock %}
+
+{% block body %}
+    <h1>Menu for {{ user.first_name }}</h1>
+    <select name="menu-type" id="menu-type">
+        {% for id, type_str in menuType %}
+            <option value="{{ id }}">{{ type_str }}</option>
+        {% empty %}
+            <option value="null">Not available</option>
+        {% endfor %}
+    </select>
+
+    <div>
+        <h2 id="menu-item-title"></h2>
+        <div id="menu-items"></div>
+    </div>
+{% endblock %}
